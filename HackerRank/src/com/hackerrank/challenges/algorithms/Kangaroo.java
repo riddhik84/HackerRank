@@ -28,7 +28,7 @@ public class Kangaroo {
         		jumps++;
         	}
         	
-        	if(jumps > 5000){
+        	if(jumps > 10000){
         		if(match == false){
         			break;
         		}
