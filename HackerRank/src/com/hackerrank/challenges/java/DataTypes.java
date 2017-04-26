@@ -1,5 +1,9 @@
 package com.hackerrank.challenges.java;
 
+/**
+ * Challenge: https://www.hackerrank.com/challenges/java-datatypes
+ */
+
 import java.util.Scanner;
 
 public class DataTypes {
