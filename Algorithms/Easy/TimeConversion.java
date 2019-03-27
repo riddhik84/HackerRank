@@ -1,23 +1,33 @@
-package com.hackerrank.challenges.algorithms;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Scanner;
+import java.util.*;
+//07:05:45AM
+//07:05:45PM
 
 public class TimeConversion {
-
-	public static void main(String[] args) {
-		Scanner in = new Scanner(System.in);
-		String time = in.next();
+	public static void main(String[] args) throws Exception{
+		Scanner sc = new Scanner(System.in);
+		String input = sc.next();
+		String input24 = input.substring(0, input.length()-2);
 		
-		SimpleDateFormat date12hFormat = new SimpleDateFormat("hh:mm:ssaa");
-		SimpleDateFormat date24hFormat = new SimpleDateFormat("HH:mm:ss");
+		String[] input_values = input24.split(":");
+		int hour = Integer.parseInt(input_values[0]);
+		//System.out.println(hour);
+		int minute = Integer.parseInt(input_values[1]);
+		int seconds = Integer.parseInt(input_values[2]);
 		
-		try {
-			System.out.println(date24hFormat.format(date12hFormat.parse(time)));
-			
-		} catch (ParseException e) {
-			e.printStackTrace();
+		if(input.contains("PM")){
+			if(hour != 12){
+				int hour24 = hour + 12;
+				//System.out.println(hour + " " + hour24);
+				input24 = input24.replace(input_values[0], hour24+"");
+				System.out.println(input24);
+			} else if (hour == 12){
+				System.out.println(input24);
+			}
+		} else if(input.contains("AM")){
+			if(hour == 12){
+				input24 = input24.replaceFirst("12","00");
+			}
+			System.out.println(input24);
 		}
 	}
 }

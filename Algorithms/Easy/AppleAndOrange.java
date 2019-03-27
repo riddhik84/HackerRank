@@ -1,52 +1,42 @@
-package com.hackerrank.challenges.algorithms;
+import java.util.*;
 
-import java.util.Scanner;
-
-public class AppleAndOrange {
-
-	public static void main(String args[]){
-		Scanner in = new Scanner(System.in);
-		int s = in.nextInt(); //house start
-		int t = in.nextInt(); //house end
-		int a = in.nextInt(); //apple tree
-		int b = in.nextInt(); //orange tree
-		int m = in.nextInt(); //apples fall
-		int n = in.nextInt(); //oranges fall
-
-		int[] apple = new int[m];
-		for(int apple_i=0; apple_i < m; apple_i++){
-			apple[apple_i] = in.nextInt();
-		}
-
-		int[] orange = new int[n];
-		for(int orange_i=0; orange_i < n; orange_i++){
-			orange[orange_i] = in.nextInt();
-		}
-
-		//Apple calculation
-		int applesOnHome = 0;
-		for(int apple_j : apple){
-			int dist = a + apple_j;
-			//System.out.println("apples dist: " +dist);
-
-			if(dist >= s && dist <= t){
-				applesOnHome++;
-			}
-		}
-
-		//Apple calculation
-		int orangesOnHome = 0;
-		for(int orange_j : orange){
-			int dist = b + orange_j;
-			//System.out.println("oranges dist: " +dist);
-
-			if(dist >= s && dist <= t){
-				orangesOnHome++;
-			}
-		}
-
-		System.out.println(applesOnHome);
-		System.out.println(orangesOnHome);
-	}
-
+public class AppleandOrange {
+	public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int startpoint = sc.nextInt();
+        int endpoint = sc.nextInt();
+        int appleTree = sc.nextInt();
+        int orangeTree = sc.nextInt();
+        int apples = sc.nextInt();
+        int oranges = sc.nextInt();
+        int[] appleDistance = new int[apples];
+        int[] orangeDistance = new int[oranges];
+        
+        for(int i = 0; i < apples; i++){
+            appleDistance[i] = sc.nextInt();
+        }
+        for(int j = 0; j < oranges; j++){
+            orangeDistance[j] = sc.nextInt();
+        }
+        
+        int appleCounter = 0;
+        int orangeCounter = 0;
+        
+        for(int a: appleDistance){
+            int tmp = a + appleTree;
+            if(tmp >= startpoint && tmp <= endpoint){
+                appleCounter++;
+            }
+        }
+        
+        for(int o: orangeDistance){
+            int tmp = o + orangeTree;
+            if(tmp >= startpoint && tmp <= endpoint){
+                orangeCounter++;
+            }
+        }
+        
+        System.out.println(appleCounter);
+        System.out.println(orangeCounter);
+    }
 }

@@ -1,37 +1,44 @@
-package com.hackerrank.challenges.algorithms;
-
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public class PlusMinus {
+    // Complete the plusMinus function below.
+    static void plusMinus(int[] arr) {
+        int n = arr.length;
+        int plus, minus, zero;
+        plus = minus = zero = 0;
+        for (int i : arr){
+            if(i > 0){
+                plus++;
+            } else if (i < 0){
+                minus++;
+            } else if(i == 0) {
+                zero++;
+            }
+        }
+        System.out.println(plus / (double)n);
+        System.out.println(minus / (double)n);
+        System.out.println(zero / (double)n);
+    }
 
-	public static void main(String[] args) {
-		float plus = 0;
-		float minus = 0;
-		float zero = 0;
+    private static final Scanner scanner = new Scanner(System.in);
 
-		Scanner in = new Scanner(System.in);
-		int n = in.nextInt();
+    public static void main(String[] args) {
+        int n = scanner.nextInt();
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
-		int arr[] = new int[n];
-		for(int arr_i=0; arr_i < n; arr_i++){
-			arr[arr_i] = in.nextInt();
-		}
-		
-		for(int i = 0; i < n; i++){
-			//System.out.println(arr[i]);
-			if(arr[i] > 0){
-				plus++;
-			}else if(arr[i] < 0){
-				minus++;
-			}else if(arr[i] == 0){
-				zero++;
-			}
-		}
-			
-		float total = n;
-		
-		System.out.printf("%.6f \n", plus/total);
-		System.out.printf("%.6f \n", minus/total);
-		System.out.printf("%.6f", zero/total);
-	}
+        int[] arr = new int[n];
+
+        String[] arrItems = scanner.nextLine().split(" ");
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+
+        for (int i = 0; i < n; i++) {
+            int arrItem = Integer.parseInt(arrItems[i]);
+            arr[i] = arrItem;
+        }
+
+        plusMinus(arr);
+
+        scanner.close();
+    }
 }

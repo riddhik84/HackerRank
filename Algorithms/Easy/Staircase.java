@@ -1,26 +1,23 @@
-package com.hackerrank.challenges.algorithms;
-
+import java.io.*;
 import java.util.*;
 
 public class Staircase {
-	
-	public static void main(String args[]){
-		Scanner in = new Scanner(System.in);
-		int N = in.nextInt();
-		
-		int blanks = N - 1;
-		int prints = N - blanks;
-		
-		for(int i = 0; i < N; i++){
-			for(int j =0; j < blanks; j++){
-				System.out.print(" ");
+		public static void main(String[] args){
+			Scanner sc = new Scanner(System.in);
+			int total = sc.nextInt();
+			int spaces = total-1;
+			
+			for(int k = 0; k < total; k++){
+				StringBuffer output = new StringBuffer();
+			    for(int i = spaces; i > 0 ; i--){
+					output.append(" ");
+				}
+				for(int j = 0; j < total - spaces; j++){
+					output.append("#");
+				}
+				System.out.println(output);
+				spaces--;
 			}
-			blanks--;
-			for(int k = 0; k < prints; k++){
-				System.out.print("#");
-			}
-			prints++;
-			System.out.print("\n");
+			sc.close();
 		}
-	}
 }

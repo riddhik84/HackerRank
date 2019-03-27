@@ -1,21 +1,24 @@
-package com.hackerrank.challenges.algorithms;
-
-import java.util.Scanner;
+import java.util.*;
+import java.io.*;
 
 public class SimpleArraySum {
-	
-	public static void main(String[] args) {
+	static int simpleArraySum(int[] ar) {
 		int sum = 0;
-        Scanner in = new Scanner(System.in);
-        int n = in.nextInt();
-        int arr[] = new int[n];
-        for(int arr_i=0; arr_i < n; arr_i++){
-            arr[arr_i] = in.nextInt();
-            //System.out.println(arr[arr_i]);
-            sum = sum + arr[arr_i];
-        }
-        
-        System.out.println(sum);
+		for (int i : ar){
+			sum = sum + i;
+		}
+        return sum;
     }
 
+    public static void main(String[] args) throws IOException{
+		Scanner sc = new Scanner(System.in);
+		int total = sc.nextInt();
+		int[] array = new int[total];
+		for(int i = 0; i < total; i++){
+			array[i] = sc.nextInt();
+		}
+		System.out.println(simpleArraySum(array));
+		sc.close();
+		
+    }
 }
