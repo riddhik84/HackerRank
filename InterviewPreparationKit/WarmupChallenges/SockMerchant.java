@@ -8,7 +8,7 @@ import java.util.regex.*;
 
 public class Solution {
 
-    // Complete the sockMerchant function below.
+    //Solution with O(n2) time and space complexity
     static int sockMerchant(int n, int[] ar) {
         HashMap<Integer, Integer> sockMap = new HashMap<>();
 		int pairs = 0;
@@ -33,6 +33,24 @@ public class Solution {
         }
         
         return pairs;
+
+    }
+	
+	//Solution with O(n) time and space complexity
+	static int sockMerchant(int n, int[] ar) {
+        int pairs = 0;
+		HashSet<Integer> sockSet = new HashSet<Integer>();
+		
+		for(int n : arr){
+			if(sockSet.contains(n){
+				pairs++;
+				sockSet.remove(n);
+			} else {
+				sockSet.add(n);
+			}
+		}
+		
+		return pairs;
 
     }
 
